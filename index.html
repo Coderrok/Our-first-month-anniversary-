@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 1st Month Anniversary! ❤️</title>
+    <style>
+        /* Global Styles & Blurry Background */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            overflow-x: hidden;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+
+        /* --- UNIQUE FEATURE 1: Blurry Dynamic Background --- */
+        .bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* REPLACE 'your-photo.jpg' with your actual image path */
+            background: url('your-photo.jpg') no-repeat center center/cover;
+            filter: blur(15px) brightness(0.6);
+            transform: scale(1.1); /* Prevents white edges from blur */
+            z-index: -2;
+        }
+
+        /* Ambient color overlay for extra romance */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 75, 75, 0.2), rgba(0, 0, 0, 0.6));
+            z-index: -1;
+        }
+
+        /* Main Glassmorphism Card */
+        .container {
+            width: 90%;
+            max-width: 550px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            animation: fadeIn 1.5s ease-in-out;
+            z-index: 10;
+        }
+
+        /* --- UNIQUE FEATURE 2: Animated Floating Frame for Your Picture --- */
+        .photo-frame {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.7);
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(255, 75, 110, 0.6);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Headers */
+        h1 {
+            font-size: 2rem;
+            color: #ff4b6e;
+            text-shadow: 0 0 10px rgba(255, 75, 110, 0.5);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+        }
+
+        /* --- UNIQUE FEATURE 3: Live Custom Timer Since She Said Yes --- */
+        .timer-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .timer-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffb4c2;
+            margin-bottom: 8px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: space-around;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        .timer span {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 300;
+            opacity: 0.7;
+        }
+
+        /* Shayari Styling */
+        .shayari-container {
+            font-style: italic;
+            background: rgba(255, 75, 110, 0.15);
+            padding: 20px;
+            border-left: 4px solid #ff4b6e;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            text-align: left;
+        }
+
+        .shayari-container em {
+            color: #ff7690;
+            font-weight: 600;
+            font-style: normal;
+        }
+
+        /* --- UNIQUE FEATURE 4: Interactive Love Note --- */
+        .heart-btn {
+            background: #ff4b6e;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 75, 110, 0.4);
+        }
+
+        .heart-btn:hover {
+            transform: scale(1.05);
+            background: #ff2a54;
+            box-shadow: 0 8px 20px rgba(255, 75, 110, 0.6);
+        }
+
+        .secret-note {
+            display: none;
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #ffb4c2;
+            animation: fadeIn 1s ease;
+        }
+
+        /* --- UNIQUE FEATURE 5: Dynamic Falling Emojis --- */
+        .emoji {
+            position: fixed;
+            top: -50px;
+            font-size: 24px;
+            pointer-events: none;
+            animation: fall linear forwards;
+            z-index: 1;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-image" id="bgImage"></div>
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+        <!-- The Floating Picture Frame -->
+        <div class="photo-frame">
+            <!-- REPLACE 'your-photo.jpg' with your actual picture file name -->
+            <img src="your-photo.jpg" alt="Our Beautiful Memory" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=500'">
+        </div>
+
+        <h1>Happy 1st Month! ❤️</h1>
+        <p class="subtitle">Since the moment you accepted my request</p>
+
+        <!-- Dynamic Counter -->
+        <div class="timer-box">
+            <div class="timer-title">Time spent loving you</div>
+            <div class="timer" id="countdown">
+                <div>00<span>Days</span></div>
+                <div>00<span>Hours</span></div>
+                <div>00<span>Mins</span></div>
+                <div>00<span>Secs</span></div>
+            </div>
+        </div>
+
+        <!-- The Hinglish Shayari -->
+        <div class="shayari-container">
+            Pehli baar jab tumne meri <em>request accept</em> ki thi,<br>
+            Wahi se toh humari <em>beautiful story</em> start hui thi.<br>
+            Ek mahina ho gaya tumhare sath <em>connect</em> hue,<br>
+            Ab har pal lagta hai jaise hum <em>perfectly perfect</em> hue. ✨
+        </div>
+
+        <!-- Interactive Surprise Button -->
+        <button class="heart-btn" onclick="revealSecret()">Click For a Surprise 💌</button>
+        <div class="secret-note" id="secretNote">
+            "Thank you for saying YES to us. This is just the first month of a lifetime of beautiful conversations. I love you! 💖"
+        </div>
+    </div>
+
+    <script>
+        // --- CONFIGURATION: SET THE EXACT DATE SHE ACCEPTED YOUR REQUEST ---
+        // Format: 'YYYY-MM-DDTHH:MM:SS' (e.g., '2026-05-24T20:00:00' for May 24, 2026 at 8:00 PM)
+        const anniversaryDate = new Date('2026-05-24T00:00:00'); 
+
+        function updateTimer() {
+            const now = new Date();
+            const difference = now - anniversaryDate;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `
+                <div>${days}<span>Days</span></div>
+                <div>${hours}<span>Hours</span></div>
+                <div>${minutes}<span>Mins</span></div>
+                <div>${seconds}<span>Secs</span></div>
+            `;
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // --- EMOJI RAIN GENERATOR ---
+        // Tailored mix of classic romance and digital connection emojis
+        const emojis = ['❤️', '💖', '✨', '💬', '👩‍❤️‍👨', '👑', '🌹', '🥰'];
+
+        function createEmoji() {
+            const emoji = document.createElement('div');
+            emoji.classList.add('emoji');
+            emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            // Randomize position and animation speed
+            emoji.style.left = Math.random() * 100 + 'vw';
+            emoji.style.animationDuration = Math.random() * 3 + 2 + 's'; 
+            emoji.style.opacity = Math.random() * 0.7 + 0.3;
+            emoji.style.fontSize = Math.random() * 15 + 18 + 'px';
+
+            document.body.appendChild(emoji);
+
+            // Clean up elements after they fall off-screen
+            setTimeout(() => {
+                emoji.remove();
+            }, 5000);
+        }
+        setInterval(createEmoji, 300);
+
+        // Interactive Button Event
+        function revealSecret() {
+            const note = document.getElementById('secretNote');
+            note.style.display = note.style.display === 'block' ? 'none' : 'block';
+            
+            // Burst of extra emojis when clicked
+            for(let i=0; i<15; i++) {
+                setTimeout(createEmoji, i * 50);
+            }
+        }
+    </script>
+</body>
+</html>
